@@ -1,0 +1,125 @@
+{
+  "images/hero.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 864,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/hero-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/hero-960.webp"
+      }
+    ]
+  },
+  "images/living.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/living-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/living-960.webp"
+      }
+    ]
+  },
+  "images/bedroom.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/bedroom-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/bedroom-960.webp"
+      }
+    ]
+  },
+  "images/kitchen.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/kitchen-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/kitchen-960.webp"
+      }
+    ]
+  },
+  "images/apartment-2bhk.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/apartment-2bhk-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/apartment-2bhk-960.webp"
+      }
+    ]
+  },
+  "images/apartment-3bhk.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/apartment-3bhk-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/apartment-3bhk-960.webp"
+      }
+    ]
+  },
+  "images/apartment-4bhk.webp": {
+    "available": true,
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "width": 640,
+        "src": "/images/apartment-4bhk-640.webp"
+      },
+      {
+        "width": 960,
+        "src": "/images/apartment-4bhk-960.webp"
+      }
+    ]
+  },
+  "images/before.webp": {
+    "available": true,
+    "width": 768,
+    "height": 1024,
+    "variants": []
+  },
+  "images/after.webp": {
+    "available": true,
+    "width": 768,
+    "height": 1024,
+    "variants": []
+  },
+  "brand/logo.webp": {
+    "available": true,
+    "width": 100,
+    "height": 100,
+    "variants": []
+  }
+}

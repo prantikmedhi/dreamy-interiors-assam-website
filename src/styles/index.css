@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/cormorant-garamond/wght.css';
+@import '@fontsource-variable/cormorant-garamond/wght-italic.css';
+@import '@fontsource-variable/manrope/wght.css';
+
+@theme {
+  --color-ivory: #f7f4ee;
+  --color-champagne: #d8c5a5;
+  --color-charcoal: #20201e;
+  --color-taupe: #a89b8a;
+  --color-gold: #b79a69;
+  --color-gold-ink: #786244;
+  --color-ink-soft: #55524c;
+  --color-line: #e3dccf;
+  --color-sand: #efe9df;
+
+  --font-display: 'Cormorant Garamond Variable', 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Manrope Variable', Manrope, ui-sans-serif, system-ui, sans-serif;
+
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 88px;
+  }
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+  body {
+    @apply bg-ivory font-sans text-charcoal antialiased;
+    font-size: 16px;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-champagne);
+    color: var(--color-charcoal);
+  }
+  :focus-visible {
+    outline: 1.5px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+  img {
+    max-width: 100%;
+  }
+  dialog::backdrop {
+    background: rgb(32 32 30 / 0.82);
+  }
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-[1360px] px-5 sm:px-8 lg:px-12;
+  }
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    line-height: 1.04;
+    text-wrap: balance;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.24em];
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-current opacity-60;
+  }
+  .btn {
+    @apply inline-flex h-[52px] items-center justify-center gap-3 whitespace-nowrap px-7 text-[12px] font-semibold uppercase tracking-[0.16em] transition-[background-color,color,border-color] duration-300;
+  }
+  .btn-gold {
+    @apply bg-gold text-charcoal hover:bg-champagne;
+  }
+  .btn-dark {
+    @apply bg-charcoal text-ivory hover:bg-[#3a3935];
+  }
+  .btn-ghost-light {
+    @apply border border-ivory/55 text-ivory hover:border-ivory hover:bg-ivory hover:text-charcoal;
+  }
+  .btn-ghost-dark {
+    @apply border border-charcoal/30 text-charcoal hover:border-charcoal hover:bg-charcoal hover:text-ivory;
+  }
+  .link-line {
+    @apply relative inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em];
+  }
+  .link-line::after {
+    content: '';
+    @apply absolute -bottom-1.5 left-0 h-px w-full origin-left bg-current transition-transform duration-500;
+    transform: scaleX(0.35);
+  }
+  .link-line:hover::after {
+    transform: scaleX(1);
+  }
+  .tone {
+    background-color: #e6dccb;
+    background-image:
+      linear-gradient(135deg, rgb(255 255 255 / 0.35), transparent 55%),
+      repeating-linear-gradient(90deg, rgb(32 32 30 / 0.035) 0 1px, transparent 1px 72px);
+  }
+  .field {
+    @apply block w-full border-0 border-b border-ivory/30 bg-transparent px-0 py-3 text-[16px] text-ivory placeholder:text-ivory/70 transition-colors focus:border-champagne focus:outline-none;
+  }
+  .field[aria-invalid='true'] {
+    @apply border-[#e3a08a];
+  }
+  .field-label {
+    @apply mb-1 block text-[11px] font-semibold uppercase tracking-[0.2em] text-champagne;
+  }
+  .zoom img {
+    transition: transform 1.2s var(--ease-soft);
+  }
+  .zoom:hover img,
+  .zoom:focus-visible img {
+    transform: scale(1.035);
+  }
+}
+
+/* Reveal on scroll: only hidden when JS is running, so pre-rendered HTML stays readable. */
+.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.9s var(--ease-soft),
+    transform 0.9s var(--ease-soft);
+  transition-delay: var(--delay, 0ms);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .zoom img,
+  .zoom:hover img {
+    transition: none;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
